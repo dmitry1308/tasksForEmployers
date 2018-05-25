@@ -7,22 +7,13 @@ public class NumberUniqueCharacters implements StringOperation {
 
     @Override
     public LinkedHashMap calculate(String line) {
-        if (isContainsInList(line)) {
+        if (mapProcessedLine.containsKey(line)) {
             return mapProcessedLine.get(line);
         }
         char[] arrayOfChars = line.toCharArray();
         LinkedHashMap<Character, Integer> numberUniqueCharacters = createMapOfNumberUniqueCharacters(arrayOfChars);
         mapProcessedLine.put(line, numberUniqueCharacters);
         return numberUniqueCharacters;
-    }
-
-    private boolean isContainsInList(String line) {
-        if (mapProcessedLine.isEmpty()) {
-            return false;
-        } else if (mapProcessedLine.containsKey(line)) {
-            return true;
-        }
-        return false;
     }
 
     private LinkedHashMap<Character, Integer> createMapOfNumberUniqueCharacters(char[] arrayOfChars) {
