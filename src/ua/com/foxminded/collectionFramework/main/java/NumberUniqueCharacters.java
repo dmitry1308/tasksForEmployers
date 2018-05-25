@@ -7,7 +7,7 @@ public class NumberUniqueCharacters implements StringOperation {
 
     @Override
     public LinkedHashMap calculate(String line) {
-        if (isContainsInList(line)) {
+        if (isContainsInMapProcessedLine(line)) {
             return mapProcessedLine.get(line);
         }
         char[] arrayOfChars = line.toCharArray();
@@ -16,7 +16,7 @@ public class NumberUniqueCharacters implements StringOperation {
         return numberUniqueCharacters;
     }
 
-    private boolean isContainsInList(String line) {
+    private boolean isContainsInMapProcessedLine(String line) {
         if (mapProcessedLine.isEmpty()) {
             return false;
         } else if (mapProcessedLine.containsKey(line)) {
