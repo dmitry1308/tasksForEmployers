@@ -9,11 +9,12 @@ public class NumberUniqueCharacters implements StringOperation {
     public LinkedHashMap calculate(String line) {
         if (mapProcessedLine.containsKey(line)) {
             return mapProcessedLine.get(line);
+        } else {
+            LinkedHashMap<Character, Integer> numberUniqueCharacters =
+                    createMapOfNumberUniqueCharacters(line.toCharArray());
+            mapProcessedLine.put(line, numberUniqueCharacters);
+            return numberUniqueCharacters;
         }
-        char[] arrayOfChars = line.toCharArray();
-        LinkedHashMap<Character, Integer> numberUniqueCharacters = createMapOfNumberUniqueCharacters(arrayOfChars);
-        mapProcessedLine.put(line, numberUniqueCharacters);
-        return numberUniqueCharacters;
     }
 
     private LinkedHashMap<Character, Integer> createMapOfNumberUniqueCharacters(char[] arrayOfChars) {
@@ -27,5 +28,10 @@ public class NumberUniqueCharacters implements StringOperation {
             }
         }
         return numberUniqueCharacters;
+    }
+
+
+    LinkedHashMap<Character, Integer> getCreateMapOfNumberUniqueCharacters(char[] arrayOfChars) {
+        return createMapOfNumberUniqueCharacters(arrayOfChars);
     }
 }
